@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Body
-  m_Shader: {fileID: -6465566751694194690, guid: 4086f21aa67da3849b85ca4909c23513, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 3f14f04784a66eb42b8dd33c1b0939bf, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -51,6 +51,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailNormalMap:
         m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Dirt:
+        m_Texture: {fileID: 2800000, guid: c5eb5bcade9f5eb44866fb96554bb184, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
@@ -89,8 +93,28 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Texture2DAsset_a5c20713c9c84b4194dbdc00b55a3b77_Out_0_Texture2D:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _Triplanar_169795371667467da284a379c44c8016_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 857d91db91001be458b50c33b86f8f9f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Triplanar_16a4daeac17e4f148376bdcf3e978bb8_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: 058a623d6af611e4088c26954f395b6a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _greenmask:
+        m_Texture: {fileID: 2800000, guid: ca49d8a5e2c58124996f32772daf62ba, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _proper:
+        m_Texture: {fileID: 2800000, guid: c44c4cd8c0bf3d945b9204bcde0fb967, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _vuil:
+        m_Texture: {fileID: 2800000, guid: db3ffc274cd1406409cd5d2edbfef72b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - unity_Lightmaps:
@@ -116,6 +140,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _MOistness: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -125,11 +150,12 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Tiling: 1.56
+    - _Tiling: 17.23
     - _UVSec: 0
     - _ZWrite: 1
     - _blend: 2
     - _power: 0.8
+    - _smoothness: 1.76
     - _ssao_strenght: -1.37
     - _strenght: 1
     - _strngt: 0.82
@@ -138,7 +164,7 @@ Material:
     - _Color: {r: 0.85660374, g: 0.76771086, b: 0.80954283, a: 1}
     - _Color_1: {r: 0.7660377, g: 0.62294763, b: 0.6846728, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _color1: {r: 0.8792453, g: 0.7946387, b: 0.80776405, a: 0}
+    - _color1: {r: 0.9169811, g: 0.7456959, b: 0.7701653, a: 0}
     - _color2: {r: 0.645283, g: 0.49065855, b: 0.5573593, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1

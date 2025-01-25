@@ -53,6 +53,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Dirt:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -89,6 +93,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _Triplanar_169795371667467da284a379c44c8016_Texture_1_Texture2D:
+        m_Texture: {fileID: 2800000, guid: 857d91db91001be458b50c33b86f8f9f, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Triplanar_16a4daeac17e4f148376bdcf3e978bb8_Texture_1_Texture2D:
         m_Texture: {fileID: 2800000, guid: 058a623d6af611e4088c26954f395b6a, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -116,6 +124,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
+    - _MOistness: 0
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -130,6 +139,7 @@ Material:
     - _ZWrite: 1
     - _blend: 6.42
     - _power: 0.8
+    - _smoothness: 0
     - _ssao_strenght: -1.37
     - _strenght: 0.99
     - _strngt: 0.82
