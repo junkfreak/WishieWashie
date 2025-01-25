@@ -20,22 +20,19 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: grass
-  m_Shader: {fileID: -6465566751694194690, guid: c30a8928c8df8a04f97966e8c4904d62, type: 3}
+  m_Name: Sponge
+  m_Shader: {fileID: -6465566751694194690, guid: 4086f21aa67da3849b85ca4909c23513, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - _SURFACE_TYPE_TRANSPARENT
+  m_ValidKeywords: []
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2999
-  stringTagMap:
-    RenderType: Transparent
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses:
   - MOTIONVECTORS
-  - DepthOnly
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -88,10 +85,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Texture:
-        m_Texture: {fileID: 2800000, guid: 89ede59217e3847c39c444f223f4084e, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _Texture2D:
         m_Texture: {fileID: 2800000, guid: 4c23b91e20752a541ba29b0ad9a75509, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -138,56 +131,42 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AlphaClip: 0
-    - _AlphaToMask: 0
     - _BUILTIN_QueueControl: 0
     - _BUILTIN_QueueOffset: 0
-    - _Blend: 0
-    - _BlendModePreserveSpecular: 0
     - _BumpScale: 1
-    - _CastShadows: 1
-    - _Cull: 2
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
-    - _DstBlend: 10
-    - _FloorTiling: 25.96
+    - _DstBlend: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _MOistness: 0
+    - _MOistness: 1.77
     - _Metallic: 0
     - _Mode: 0
-    - _Noise_Tiling: 0.49
     - _OcclusionStrength: 1
     - _Parallax: 0.02
     - _QueueControl: 0
-    - _QueueOffset: -1
-    - _ReceiveShadows: 1
+    - _QueueOffset: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
-    - _SrcBlend: 5
-    - _Surface: 1
-    - _Tiling: 0.2
+    - _SrcBlend: 1
+    - _Tiling: -1.17
     - _UVSec: 0
-    - _WorkflowMode: 1
-    - _ZTest: 4
-    - _ZWrite: 0
-    - _ZWriteControl: 0
+    - _ZWrite: 1
     - _blend: 2
-    - _floorblend: -2.54
     - _metalic: 0
     - _power: 0.8
     - _smoothness: 1.76
     - _ssao_strenght: -1.37
-    - _strenght: 1
+    - _strenght: 0.61
     - _strngt: 0.82
     - _tiling: 2.74
     m_Colors:
     - _Color: {r: 0.85660374, g: 0.76771086, b: 0.80954283, a: 1}
     - _Color_1: {r: 0.7660377, g: 0.62294763, b: 0.6846728, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _color1: {r: 0.51780134, g: 0.5924529, b: 0.19562118, a: 1}
-    - _color2: {r: 0.54772216, g: 0.6226415, b: 0.2243859, a: 0}
+    - _color1: {r: 1, g: 0.84606725, b: 0, a: 0}
+    - _color2: {r: 0.17735851, g: 0.06042286, b: 0.057223212, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6310839765150062439

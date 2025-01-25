@@ -2,6 +2,7 @@
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Experimental.Rendering;
 
 public class CleanScript : MonoBehaviour
 {
@@ -39,8 +40,13 @@ public class CleanScript : MonoBehaviour
         dirtMaskTextureBase = _material.GetTexture("_greenmask") as Texture2D;
 
         _dirtMaskBase = new Texture2D(dirtMaskTextureBase.width , dirtMaskTextureBase.height);
-        //_dirtMaskBase.SetPixels(dirtMaskTextureBase.GetPixels());
+        _dirtMaskBase.SetPixels(dirtMaskTextureBase.GetPixels());
+        //_dirtMaskBase.graphicsFormat = TextureFormat.RGBA32;
         _dirtMaskBase.Apply();
+
+
+        //_dirtMaskBase.SetPixels(dirtMaskTextureBase.GetPixels());
+        //_dirtMaskBase.Apply();
         _material.SetTexture("_greenmask", _dirtMaskBase);
     }
     private void Start()
