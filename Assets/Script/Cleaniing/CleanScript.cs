@@ -60,7 +60,8 @@ public class CleanScript : MonoBehaviour
     private void Update()
     {
         Debug.DrawRay(handL.transform.position, - handL.transform.forward, Color.red, handDist);
-        if (Physics.Raycast(handL.transform.position, - handL.transform.forward, out RaycastHit hithand, handDist, ~mask))
+        if (Physics.SphereCast(handL.transform.position, rayRadius, handL.transform.position, out RaycastHit hithand, 0.1f, ~mask))
+            //if (Physics.Raycast(handL.transform.position, - handL.transform.forward, out RaycastHit hithand, handDist, ~mask))
         {
             Vector2 textureCoord = hithand.textureCoord;
             Debug.Log(textureCoord);
@@ -96,8 +97,8 @@ public class CleanScript : MonoBehaviour
 
 
         Debug.DrawRay(handR.transform.position, -handR.transform.forward, Color.red, handDist);
-       // if (Physics.SphereCast(handR.transform.position,rayRadius, -handR.transform.position, out RaycastHit hithand2, 0.5f, ~mask))
-          if (Physics.Raycast(handR.transform.position, -handR.transform.forward, out RaycastHit hithand2, handDist, ~mask))
+        if (Physics.SphereCast(handR.transform.position,rayRadius, handR.transform.position, out RaycastHit hithand2, 0.1f, ~mask))
+          //if (Physics.Raycast(handR.transform.position, -handR.transform.forward, out RaycastHit hithand2, handDist, ~mask))
         {
             Vector2 textureCoord = hithand2.textureCoord;
             Debug.Log(textureCoord);
