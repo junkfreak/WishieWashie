@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using Unity.Mathematics;
 
 public class Movement : MonoBehaviour
 {
@@ -16,7 +17,8 @@ public class Movement : MonoBehaviour
     private Vector2 moveInput;
     private Vector2 rotateInput;
 
-    public float speed, rotSpeed, sprintSpeed, normSpeed;
+    public float speed, rotSpeed, sprintSpeed, normSpeed, sensi, sensiX;
+    public float inputYrot, upRange, downRange;
     public Camera cam;
 
     public CharacterController contrlr;
@@ -51,6 +53,7 @@ public class Movement : MonoBehaviour
     void Update()
     {
         Bewegen();
+        Draaien();
     }
 
     public void Bewegen()
@@ -87,9 +90,12 @@ public class Movement : MonoBehaviour
     {
         if (rotateInput.sqrMagnitude > 0.1f)
         {
-            float targRot = Mathf.Atan2(-rotateInput.y, rotateInput.x) * Mathf.Rad2Deg + cam.transform.eulerAngles.y;
-            Quaternion lookAt = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, targRot, 0), rotSpeed);
-            this.transform.rotation = lookAt;
+            float inputXrot = rotateInput.x * sensiX;
+            transform.Rotate(0, inputXrot, 0);
+
+             inputYrot -= rotateInput.y * sensi;
+            inputYrot = Mathf.Clamp(inputYrot, downRange, upRange);
+            cam.transform.localRotation = quaternion.Euler(inputYrot, 0, 0);
         }
     }
 }
