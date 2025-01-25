@@ -2236,6 +2236,11 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.0081312265, y: 0.012472933, z: 0.010457793}
   m_Center: {x: -0.0023207234, y: 0.005145892, z: -0.00008054555}
+--- !u!1 &720886760 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -7480015357643301419, guid: b57de9388b5bf07448d3c65dd84671f7, type: 3}
+  m_PrefabInstance: {fileID: 2014924292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &739685903 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -2874919495778809639, guid: b57de9388b5bf07448d3c65dd84671f7, type: 3}
@@ -2447,6 +2452,7 @@ GameObject:
   - component: {fileID: 902168137}
   - component: {fileID: 902168136}
   - component: {fileID: 902168139}
+  - component: {fileID: 902168140}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2573,6 +2579,27 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
+--- !u!114 &902168140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902168135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ab5d587e2eae8a4cad2bbc513aa3005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _camera: {fileID: 902168137}
+  _dirtMaskBase: {fileID: 0}
+  _brush: {fileID: 0}
+  _material: {fileID: 0}
+  reus: {fileID: 720886760}
+  shoot: 0
+  pInput: {fileID: 2103565902}
+  pcntrl: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
+  rayDist: 5
 --- !u!1 &915476501
 GameObject:
   m_ObjectHideFlags: 0
@@ -5396,6 +5423,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: ReusRigged
       objectReference: {fileID: 0}
+    - target: {fileID: 6367264105108688180, guid: b57de9388b5bf07448d3c65dd84671f7, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: e3f9dbd0da99a09449f776da3ef88484, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
