@@ -140,7 +140,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _MOistness: 1.82
+    - _MOistness: 1.55
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1
@@ -150,15 +150,15 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
-    - _Tiling: -1.39
+    - _Tiling: -0.66
     - _UVSec: 0
     - _ZWrite: 1
-    - _blend: 2
+    - _blend: 6.96
     - _metalic: 1
     - _power: 0.8
     - _smoothness: 1.76
     - _ssao_strenght: -1.37
-    - _strenght: 0.72
+    - _strenght: 0.26
     - _strngt: 0.82
     - _tiling: 2.74
     m_Colors:
