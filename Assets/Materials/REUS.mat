@@ -58,7 +58,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Dirtmask:
-        m_Texture: {fileID: 2800000, guid: c5eb5bcade9f5eb44866fb96554bb184, type: 3}
+        m_Texture: {fileID: 2800000, guid: 32f4c6db551dd064785a7537f893b37b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
