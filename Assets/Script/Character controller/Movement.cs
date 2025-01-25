@@ -17,22 +17,24 @@ public class Movement : MonoBehaviour
     private Vector2 moveInput;
     private Vector2 rotateInput;
 
-    public float speed, rotSpeed, sprintSpeed, normSpeed, sensi, sensiX;
+    public float speed, rotSpeed, sensi, sensiX, radius, jumpForce;
     public float inputYrot, upRange, downRange;
     public Camera cam;
 
     public CharacterController contrlr;
     public Vector3 playerVelo;
     public float gravity;
-    public bool grounded, sprint;
+    public bool grounded, sprint, jump;
 
     public float jumpHeight;
+
+    public LayerMask lMask;
     private void Awake()
     {
         moveAct = pcntrl.FindActionMap("Player").FindAction("Move");
         rotateAct = pcntrl.FindActionMap("Player").FindAction("Look");
         sprintAct = pcntrl.FindActionMap("Player").FindAction("Sprint");
-
+        jumpAct = pcntrl.FindActionMap("Player").FindAction("Jump");
 
 
         moveAct.performed += context => moveInput = context.ReadValue<Vector2>();
@@ -44,6 +46,9 @@ public class Movement : MonoBehaviour
         sprintAct.performed += context => sprint = true;
         sprintAct.canceled += context => sprint = false;
 
+        jumpAct.performed += context => jump = true;
+        jumpAct.canceled += context => jump = false;
+
 
 
 
@@ -52,8 +57,14 @@ public class Movement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //playerVelo.y += gravity * Time.deltaTime;
+
         Bewegen();
         Draaien();
+        GrondChecker();
+        Springen();
+
+       
     }
 
     public void Bewegen()
@@ -79,7 +90,7 @@ public class Movement : MonoBehaviour
 
         if (grounded == false)
         {
-            playerVelo += Physics.gravity / 20;
+            playerVelo += Physics.gravity /20;
 
             contrlr.Move(playerVelo * Time.deltaTime);
         }
@@ -96,6 +107,26 @@ public class Movement : MonoBehaviour
              inputYrot -= rotateInput.y * sensi;
             inputYrot = Mathf.Clamp(inputYrot, downRange, upRange);
             cam.transform.localRotation = quaternion.Euler(inputYrot, 0, 0);
+        }
+    }
+
+    public void GrondChecker()
+    {
+        grounded = Physics.CheckSphere(transform.position, radius, lMask);
+        if (grounded && playerVelo.y < 0)
+        {
+            playerVelo.y = -2;
+            contrlr.Move(playerVelo * Time.deltaTime);
+        }
+    }
+
+    public void Springen()
+    {
+        if ( jump && grounded)
+        {
+            Debug.Log("spring");
+            playerVelo.y += Mathf.Sqrt(jumpHeight * -2f * gravity);
+            contrlr.Move(playerVelo * Time.deltaTime);
         }
     }
 }
