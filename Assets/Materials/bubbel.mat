@@ -137,7 +137,7 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _Fresnel_power: 0
+    - _Fresnel_power: 0.81
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
@@ -154,6 +154,7 @@ Material:
     - _Tiling: 17.23
     - _UVSec: 0
     - _ZWrite: 1
+    - _alpha: 1
     - _blend: 2
     - _power: 0.8
     - _smoothness: 1.76
