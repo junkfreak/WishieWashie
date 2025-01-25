@@ -143,6 +143,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - _blend: 7.33
+    - _fresnel: 6.71
     - _metalic: 0
     - _power: 0.8
     - _smoothness: 0
@@ -156,6 +157,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _color1: {r: 0.7660377, g: 0.6576361, b: 0.7098189, a: 0}
     - _color2: {r: 0.78867924, g: 0.68897825, b: 0.7313512, a: 0}
+    - _rim: {r: 0.16226411, g: 0.16226411, b: 0.16226411, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6310839765150062439
