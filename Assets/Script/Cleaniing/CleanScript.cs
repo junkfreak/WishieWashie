@@ -20,7 +20,7 @@ public class CleanScript : MonoBehaviour
     public bool shoot;
     public PlayerInput pInput;
     public InputActionAsset pcntrl;
-    public float rayDist, handDist, rayRadius;
+    public float rayDist, handDist, rayRadius, sphereDist;
 
     public GameObject handL, handR;
 
@@ -57,14 +57,21 @@ public class CleanScript : MonoBehaviour
         //CreateTexture();
     }
 
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawSphere(handL.transform.forward * sphereDist, rayRadius);
+        Gizmos.DrawSphere(handR.transform.forward * sphereDist, rayRadius);
+    }
+
     private void Update()
     {
-        Debug.DrawRay(handL.transform.position, - handL.transform.forward, Color.red, handDist);
-        if (Physics.SphereCast(handL.transform.position, rayRadius, handL.transform.position, out RaycastHit hithand, 0.1f, ~mask))
+        //Debug.DrawRay(handL.transform.position, - handL.transform.forward, Color.red, handDist);
+        if (Physics.SphereCast(handL.transform.position, rayRadius, handL.transform.forward, out RaycastHit hithand, sphereDist, ~mask))
             //if (Physics.Raycast(handL.transform.position, - handL.transform.forward, out RaycastHit hithand, handDist, ~mask))
         {
             Vector2 textureCoord = hithand.textureCoord;
-            Debug.Log(textureCoord);
+            //Debug.Log(hithand);
 
             int pixlX = (int)(textureCoord.x * _dirtMaskBase.width);
             int pixlY = (int)(textureCoord.y * _dirtMaskBase.height);
@@ -96,8 +103,8 @@ public class CleanScript : MonoBehaviour
         }
 
 
-        Debug.DrawRay(handR.transform.position, -handR.transform.forward, Color.red, handDist);
-        if (Physics.SphereCast(handR.transform.position,rayRadius, handR.transform.position, out RaycastHit hithand2, 0.1f, ~mask))
+        //Debug.DrawRay(handR.transform.position, -handR.transform.forward, Color.red, handDist);
+        if (Physics.SphereCast(handR.transform.position,rayRadius,handR.transform.forward, out RaycastHit hithand2, sphereDist, ~mask))
           //if (Physics.Raycast(handR.transform.position, -handR.transform.forward, out RaycastHit hithand2, handDist, ~mask))
         {
             Vector2 textureCoord = hithand2.textureCoord;
