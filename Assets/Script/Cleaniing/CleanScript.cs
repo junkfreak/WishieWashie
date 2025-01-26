@@ -22,7 +22,7 @@ public class CleanScript : MonoBehaviour
     public InputActionAsset pcntrl;
     public float rayDist, handDist, rayRadius, sphereDist;
 
-    public GameObject handL, handR;
+    public GameObject handL, handR, pisser;
 
     public LayerMask mask;
     public void Awake()
@@ -66,6 +66,11 @@ public class CleanScript : MonoBehaviour
 
     private void Update()
     {
+
+        if(shoot == false)
+        {
+            pisser.SetActive(false);
+        }
         //Debug.DrawRay(handL.transform.position, - handL.transform.forward, Color.red, handDist);
         if (Physics.SphereCast(handL.transform.position, rayRadius, handL.transform.forward, out RaycastHit hithand, sphereDist, ~mask))
             //if (Physics.Raycast(handL.transform.position, - handL.transform.forward, out RaycastHit hithand, handDist, ~mask))
@@ -144,6 +149,7 @@ public class CleanScript : MonoBehaviour
         Debug.DrawRay(_camera.transform.position, _camera.transform.forward, Color.yellow, rayDist);
         if (shoot)
         {
+            pisser.SetActive(true);
             if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out RaycastHit hit, rayDist, ~mask))
             {
                 Vector2 textureCoord = hit.textureCoord;
