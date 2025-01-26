@@ -92,7 +92,7 @@ public class CleanScript : MonoBehaviour
         slidemeter.z = dirtpercent / 100;
         slideobj.transform.localScale = slidemeter;
 
-        if (dirtpercent <= 80)
+        if (dirtpercent <= 40)
         {
             butt.goalReached = true;
         }
