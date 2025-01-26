@@ -1,8 +1,8 @@
 
-using UnityEditor.Experimental.GraphView;
+
 using UnityEngine;
 using UnityEngine.InputSystem;
-using UnityEngine.Experimental.Rendering;
+
 
 public class CleanScript : MonoBehaviour
 {
@@ -32,7 +32,8 @@ public class CleanScript : MonoBehaviour
     public bool soapLand;
 
 
-    public float dirtAmount;
+    private float dirtAmountTotal;
+    private float dirtAmount;
     public void Awake()
     {
         ShootAct = pcntrl.FindActionMap("Player").FindAction("Attack");
@@ -233,7 +234,7 @@ public class CleanScript : MonoBehaviour
         {
             for (int y = 0; y < _dirtMaskBase.height; y++)
             {
-                dirtAmount += _dirtMaskBase.GetPixel(x, y).g;
+                dirtAmountTotal += _dirtMaskBase.GetPixel(x, y).g;
             }
 
         }

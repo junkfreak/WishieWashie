@@ -6615,7 +6615,7 @@ PrefabInstance:
       objectReference: {fileID: 522641316}
     - target: {fileID: 4913915604421939912, guid: 3e87ace316d32104e9cf25e26eebb146, type: 3}
       propertyPath: rayDist
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4913915604421939912, guid: 3e87ace316d32104e9cf25e26eebb146, type: 3}
       propertyPath: rayRadius
