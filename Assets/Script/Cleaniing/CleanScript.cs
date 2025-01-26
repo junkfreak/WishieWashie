@@ -25,6 +25,10 @@ public class CleanScript : MonoBehaviour
     public GameObject handL, handR, pisser;
 
     public LayerMask mask;
+
+
+
+    public AudioSource soapSource, pissSource;
     public void Awake()
     {
         ShootAct = pcntrl.FindActionMap("Player").FindAction("Attack");
@@ -69,12 +73,16 @@ public class CleanScript : MonoBehaviour
 
         if(shoot == false)
         {
+            pissSource.Stop();
             pisser.SetActive(false);
         }
         //Debug.DrawRay(handL.transform.position, - handL.transform.forward, Color.red, handDist);
         if (Physics.SphereCast(handL.transform.position, rayRadius, handL.transform.forward, out RaycastHit hithand, sphereDist, ~mask))
             //if (Physics.Raycast(handL.transform.position, - handL.transform.forward, out RaycastHit hithand, handDist, ~mask))
         {
+            //audio part
+            soapSource.Play();
+
             Vector2 textureCoord = hithand.textureCoord;
             //Debug.Log(hithand);
 
@@ -105,6 +113,10 @@ public class CleanScript : MonoBehaviour
             }
 
             _dirtMaskBase.Apply();
+        }
+        else
+        {
+            soapSource.Stop();
         }
 
 
@@ -149,6 +161,7 @@ public class CleanScript : MonoBehaviour
         Debug.DrawRay(_camera.transform.position, _camera.transform.forward, Color.yellow, rayDist);
         if (shoot)
         {
+            pissSource.Play();
             pisser.SetActive(true);
             if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out RaycastHit hit, rayDist, ~mask))
             {
