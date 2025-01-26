@@ -2,6 +2,7 @@
 
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 
 public class CleanScript : MonoBehaviour
@@ -32,10 +33,17 @@ public class CleanScript : MonoBehaviour
     public bool soapLand;
 
 
-    private float dirtAmountTotal;
-    private float dirtAmount;
+    public float dirtAmountTotal;
+    public float dirtAmount;
+
+    public float dirtpercent;
+
+    public Slider slide;
+    public GameObject slideobj;
+    Vector3 slidemeter;
     public void Awake()
     {
+        slidemeter = slideobj.transform.localScale;
         ShootAct = pcntrl.FindActionMap("Player").FindAction("Attack");
 
 
@@ -57,6 +65,8 @@ public class CleanScript : MonoBehaviour
         //_dirtMaskBase.SetPixels(dirtMaskTextureBase.GetPixels());
         //_dirtMaskBase.Apply();
         _material.SetTexture("_greenmask", _dirtMaskBase);
+
+        DirtScore();
     }
     private void Start()
     {
@@ -75,7 +85,11 @@ public class CleanScript : MonoBehaviour
 
     private void Update()
     {
-        DirtScore();
+        dirtpercent = Mathf.RoundToInt(GetDirtAmount() * 100f);
+        slide.value = dirtpercent;
+        slidemeter.z = dirtpercent / 100;
+        slideobj.transform.localScale = slidemeter;
+        //DirtScore();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
@@ -126,7 +140,8 @@ public class CleanScript : MonoBehaviour
                     Color pixDirt = _brush.GetPixel(x, y);
                     Color pixMask = _dirtMaskBase.GetPixel(pixlOffsetX + x, pixlOffsetY + y);
 
-
+                    float removedAmount = pixMask.g - (pixMask.g * pixDirt.g);
+                    dirtAmount -= removedAmount;
 
                     _dirtMaskBase.SetPixel(pixlOffsetX + x, pixlOffsetY + y, new Color(0, pixMask.g * pixDirt.g, 0));
                 }
@@ -168,7 +183,8 @@ public class CleanScript : MonoBehaviour
                     Color pixDirt = _brush.GetPixel(x, y);
                     Color pixMask = _dirtMaskBase.GetPixel(pixlOffsetX + x, pixlOffsetY + y);
 
-
+                    float removedAmount = pixMask.g - (pixMask.g * pixDirt.g);
+                    dirtAmount -= removedAmount;
 
                     _dirtMaskBase.SetPixel(pixlOffsetX + x, pixlOffsetY + y, new Color(0, pixMask.g * pixDirt.g, 0));
                 }
@@ -184,11 +200,13 @@ public class CleanScript : MonoBehaviour
 
 
         //Debug.DrawLine(_camera.transform.position, _camera.transform.forward, Color.red, rayDist);
-        Debug.DrawRay(_camera.transform.position, _camera.transform.forward, Color.yellow, rayDist);
+        
         if (shoot)
         {
             pissSource.enabled = true;
             pisser.SetActive(true);
+            //Debug.DrawRay(_camera.transform.position, _camera.transform.forward, Color.yellow, rayDist);
+            Debug.DrawLine(_camera.transform.position, _camera.transform.forward, Color.yellow, rayDist);
             if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out RaycastHit hit, rayDist, ~mask))
             {
                 Vector2 textureCoord = hit.textureCoord;
@@ -213,8 +231,9 @@ public class CleanScript : MonoBehaviour
                         Color pixDirt = _brush.GetPixel(x, y);
                         Color pixMask = _dirtMaskBase.GetPixel(pixlOffsetX + x, pixlOffsetY + y);
 
+                        float removedAmount = pixMask.g - (pixMask.g * pixDirt.g);
+                        dirtAmount -= removedAmount;
 
-                        
                         _dirtMaskBase.SetPixel(pixlOffsetX + x, pixlOffsetY + y, new Color(0,pixMask.g * pixDirt.g,0));
                     }
 
@@ -230,13 +249,23 @@ public class CleanScript : MonoBehaviour
 
     public void DirtScore()
     {
-        for(int x = 0; x < _dirtMaskBase.width; x++)
+        for(int x = 0; x < dirtMaskTextureBase.width; x++)
         {
-            for (int y = 0; y < _dirtMaskBase.height; y++)
+            for (int y = 0; y < dirtMaskTextureBase.height; y++)
             {
-                dirtAmountTotal += _dirtMaskBase.GetPixel(x, y).g;
+                dirtAmountTotal += dirtMaskTextureBase.GetPixel(x, y).g;
             }
 
         }
+
+        dirtAmount = dirtAmountTotal;
+       
+        dirtpercent = Mathf.RoundToInt(GetDirtAmount() * 100f);
+        Debug.Log("dirt percentage" + dirtpercent );
+    }
+
+    private float GetDirtAmount()
+    {
+        return this.dirtAmount / dirtAmountTotal;
     }
 }
