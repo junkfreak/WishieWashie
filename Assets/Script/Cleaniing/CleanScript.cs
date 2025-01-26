@@ -41,6 +41,8 @@ public class CleanScript : MonoBehaviour
     public Slider slide;
     public GameObject slideobj;
     Vector3 slidemeter;
+
+    public Buttons butt;
     public void Awake()
     {
         slidemeter = slideobj.transform.localScale;
@@ -89,6 +91,11 @@ public class CleanScript : MonoBehaviour
         slide.value = dirtpercent;
         slidemeter.z = dirtpercent / 100;
         slideobj.transform.localScale = slidemeter;
+
+        if (dirtpercent <= 80)
+        {
+            butt.goalReached = true;
+        }
         //DirtScore();
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;

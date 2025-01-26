@@ -5,7 +5,7 @@ public class Buttons : MonoBehaviour
 {
     public GameObject reus, startButt, resetButt;
 
-    public bool start, reset;
+    public bool start, reset, goalReached;
 
     public string sceneName;
 
@@ -20,7 +20,10 @@ public class Buttons : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (goalReached)
+        {
+            resetButt.SetActive(true);
+        }
     }
 
 
@@ -31,7 +34,7 @@ public class Buttons : MonoBehaviour
         {
             Debug.Log(other.gameObject);
             reus.SetActive(true);
-            resetButt.SetActive(true);
+            
             // startButt.SetActive(false);
             box.enabled = false;
             //reset = true;
