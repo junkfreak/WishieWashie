@@ -21,7 +21,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: rocks 2
-  m_Shader: {fileID: -6465566751694194690, guid: 4086f21aa67da3849b85ca4909c23513, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: aa12f5432f3787942a73e9c55ccf239f, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -90,7 +90,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2D:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 56eb8cf920510de4c9d160bd630ad67b, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Texture2DAsset_019758bd93714df58fff07b200bcf9e3_Out_0_Texture2D:
@@ -128,7 +128,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossyReflections: 1
-    - _MOistness: 1.62
+    - _MOistness: 1.55
     - _Metallic: 0
     - _Mode: 0
     - _NormalStrength: 0.4
@@ -143,6 +143,7 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     - _blend: 7.33
+    - _fresnel: 0
     - _metalic: 0
     - _power: 0.8
     - _smoothness: 0
@@ -156,6 +157,7 @@ Material:
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _color1: {r: 0.4037736, g: 0.4037736, b: 0.4037736, a: 0}
     - _color2: {r: 0.78867924, g: 0.68897825, b: 0.7313512, a: 0}
+    - _rim: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6310839765150062439
