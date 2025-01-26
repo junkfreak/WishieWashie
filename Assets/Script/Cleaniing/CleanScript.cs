@@ -29,6 +29,10 @@ public class CleanScript : MonoBehaviour
 
 
     public AudioSource soapSource, pissSource;
+    public bool soapLand;
+
+
+    public float dirtAmount;
     public void Awake()
     {
         ShootAct = pcntrl.FindActionMap("Player").FindAction("Attack");
@@ -70,10 +74,23 @@ public class CleanScript : MonoBehaviour
 
     private void Update()
     {
+        DirtScore();
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
+
+        if (soapLand)
+        {
+            soapSource.enabled = true;
+        }
+        else
+        {
+            soapSource.enabled = false;
+        }
+
 
         if(shoot == false)
         {
-            pissSource.Stop();
+            pissSource.enabled = false ;
             pisser.SetActive(false);
         }
         //Debug.DrawRay(handL.transform.position, - handL.transform.forward, Color.red, handDist);
@@ -81,7 +98,10 @@ public class CleanScript : MonoBehaviour
             //if (Physics.Raycast(handL.transform.position, - handL.transform.forward, out RaycastHit hithand, handDist, ~mask))
         {
             //audio part
-            soapSource.Play();
+          if(soapLand == false)
+            {
+                soapLand = true;
+            }
 
             Vector2 textureCoord = hithand.textureCoord;
             //Debug.Log(hithand);
@@ -116,8 +136,9 @@ public class CleanScript : MonoBehaviour
         }
         else
         {
-            soapSource.Stop();
+            soapLand = false;
         }
+        
 
 
         //Debug.DrawRay(handR.transform.position, -handR.transform.forward, Color.red, handDist);
@@ -155,13 +176,17 @@ public class CleanScript : MonoBehaviour
 
             _dirtMaskBase.Apply();
         }
+        else
+        {
+            soapLand = false;
+        }
 
 
         //Debug.DrawLine(_camera.transform.position, _camera.transform.forward, Color.red, rayDist);
         Debug.DrawRay(_camera.transform.position, _camera.transform.forward, Color.yellow, rayDist);
         if (shoot)
         {
-            pissSource.Play();
+            pissSource.enabled = true;
             pisser.SetActive(true);
             if (Physics.Raycast(_camera.transform.position, _camera.transform.forward, out RaycastHit hit, rayDist, ~mask))
             {
@@ -202,5 +227,15 @@ public class CleanScript : MonoBehaviour
             
     }
 
-    
+    public void DirtScore()
+    {
+        for(int x = 0; x < _dirtMaskBase.width; x++)
+        {
+            for (int y = 0; y < _dirtMaskBase.height; y++)
+            {
+                dirtAmount += _dirtMaskBase.GetPixel(x, y).g;
+            }
+
+        }
+    }
 }
